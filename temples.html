@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temple Recommendations — WanderLust</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="brand">
+    <i class="fas fa-compass"></i> Wander<span>Lust</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+    <li><a href="beaches.html"><i class="fas fa-umbrella-beach"></i> Beaches</a></li>
+    <li><a class="active" href="temples.html"><i class="fas fa-gopuram"></i> Temples</a></li>
+    <li><a href="countries.html"><i class="fas fa-globe"></i> Countries</a></li>
+    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+  </ul>
+  <div class="search-area">
+    <input type="text" id="searchInput" placeholder="Search destinations..." />
+    <button class="btn-search" id="searchBtn"><i class="fas fa-search"></i> Search</button>
+    <button class="btn-clear" id="clearBtn"><i class="fas fa-times"></i> Clear</button>
+  </div>
+</nav>
+
+<main class="page">
+  <section class="category-intro">
+    <h1><i class="fas fa-gopuram"></i> Temple Recommendations</h1>
+    <p>Explore ancient temples, sacred architecture, and spiritual heritage sites around the world.</p>
+  </section>
+
+  <section>
+    <h2 class="section-title"><i class="fas fa-gopuram" style="color:#f7c948;"></i> Top Temple Destinations</h2>
+    <div id="templeGrid" class="results-grid"></div>
+  </section>
+</main>
+
+<script src="recommendations.js"></script>
+<script>
+  (function() {
+    renderCategory('temple', 'templeGrid');
+
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    const clearBtn = document.getElementById('clearBtn');
+
+    function performSearch() {
+      window.location.href = 'index.html?q=' + encodeURIComponent(searchInput.value);
+    }
+
+    function clearSearch() {
+      searchInput.value = '';
+      searchInput.focus();
+    }
+
+    searchBtn.addEventListener('click', performSearch);
+    clearBtn.addEventListener('click', clearSearch);
+    searchInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        performSearch();
+      }
+    });
+  })();
+</script>
+</body>
+</html>
