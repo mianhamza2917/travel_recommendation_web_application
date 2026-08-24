@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — WanderLust</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="brand">
+    <i class="fas fa-compass"></i> Wander<span>Lust</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+    <li><a class="active" href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+  </ul>
+  <div class="search-area">
+    <input type="text" id="searchInput" placeholder="Search destinations..." />
+    <button class="btn-search" id="searchBtn"><i class="fas fa-search"></i> Search</button>
+    <button class="btn-clear" id="clearBtn"><i class="fas fa-times"></i> Clear</button>
+  </div>
+</nav>
+
+<main class="page">
+  <section class="hero">
+    <h1><i class="fas fa-info-circle"></i> About WanderLust</h1>
+    <p>We're on a mission to make travel planning simple, inspiring, and unforgettable.</p>
+  </section>
+
+  <section>
+    <h2 class="section-title"><i class="fas fa-info-circle" style="color:#f7c948;"></i> About Us</h2>
+    <div class="about-grid">
+      <div class="about-card">
+        <h3><i class="fas fa-bullseye" style="color:#f7c948;"></i> Our Mission</h3>
+        <p>We believe travel is the best education. Our mission is to curate authentic, inspiring, and diverse travel recommendations so you can explore the world with confidence.</p>
+      </div>
+      <div class="about-card">
+        <h3><i class="fas fa-heart" style="color:#f7c948;"></i> What We Do</h3>
+        <p>From tropical beaches to ancient temples and vibrant cities, we handpick destinations that offer unique culture, stunning landscapes, and unforgettable experiences.</p>
+      </div>
+      <div class="about-card">
+        <h3><i class="fas fa-users" style="color:#f7c948;"></i> Our Team</h3>
+        <p>We are a passionate group of travelers, writers, and photographers who have explored over 50 countries. We share our insider tips to help you travel smarter.</p>
+      </div>
+      <div class="about-card">
+        <h3><i class="fas fa-globe" style="color:#f7c948;"></i> Sustainability</h3>
+        <p>We promote responsible travel that supports local communities and preserves the environment. Every recommendation considers ecological and cultural impact.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  (function() {
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    const clearBtn = document.getElementById('clearBtn');
+
+    function performSearch() {
+      window.location.href = 'index.html?q=' + encodeURIComponent(searchInput.value);
+    }
+
+    function clearSearch() {
+      searchInput.value = '';
+      searchInput.focus();
+    }
+
+    searchBtn.addEventListener('click', performSearch);
+    clearBtn.addEventListener('click', clearSearch);
+    searchInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        performSearch();
+      }
+    });
+  })();
+</script>
+</body>
+</html>
